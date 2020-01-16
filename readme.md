@@ -15,7 +15,7 @@ Because the `sys.settrace` method adds additional overhead it is not enabled by 
 ## Commands
 Breakpoint  
 `b(reak) [ filename:lineno [, condition] ]`  
-Without argument, list all breaks. With a file:line number argument, set a break at this line in the current file. If a second argument is present, it is a string specifying an expression which must evaluate to true before the breakpoint is honored. 
+Without argument, list all breaks. With a file:line number argument, set a break at this line. If a second argument is present, it is a string specifying an expression which must evaluate to true before the breakpoint is honored. 
 
 **NOTE:** Because of optimizations in micropython conditional breakpoints are limited to the global scope. 
 
