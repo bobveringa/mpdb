@@ -299,10 +299,7 @@ class Breakpoint:
     single instance of class Breakpoint.  The latter points to a
     list of such instances since there may be more than one
     breakpoint per line.
-    When creating a breakpoint, its associated filename should be
-    in canonical form.  If funcname is defined, a breakpoint hit will be
-    counted when the first line of that function is executed.  A
-    conditional breakpoint always counts a hit.
+	A conditional breakpoint always counts a hit.
     """
 
     # XXX Keeping state in the class is a mistake -- this means
@@ -410,10 +407,6 @@ class Cmd:
         self.lastcmd = ''
 
     def cmdloop(self):
-        """Repeatedly issue a prompt, accept input, parse an initial prefix
-        off the received input, and dispatch to action methods, passing them
-        the remainder of the line as argument.
-        """
         try:
             stop = None
             while not stop:
@@ -428,10 +421,6 @@ class Cmd:
     def onecmd(self, line):
         """Interpret the argument as though it had been typed in response
         to the prompt.
-        This may be overridden, but should not normally need to be;
-        see the precmd() and postcmd() methods for useful execution hooks.
-        The return value is a flag indicating whether interpretation of
-        commands by the interpreter should stop.
         """
         cmd, arg, line = self.parseline(line)
         if not line:
@@ -543,8 +532,7 @@ def print_stacktrace(frame, level=0):
         level, "  ",
         frame.f_globals['__name__'],
         frame.f_code.co_name,
-        # reduce full path to some pseudo-relative
-        'misc' + ''.join(frame.f_code.co_filename.split('tests/misc')[-1:]),
+        frame.f_code.co_filename,
         frame.f_lineno,
     ))
 
@@ -676,8 +664,7 @@ class Mpdb(Mbdb, Cmd):
         Without argument, continue execution until the line with a
         number greater than the current one is reached.  With a line
         number, continue execution until a line with a number greater
-        or equal to that is reached.  In both cases, also stop when
-        the current frame returns.
+        or equal to that is reached.
         """
         if arg:
             try:
