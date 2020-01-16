@@ -393,6 +393,8 @@ class Breakpoint:
         return 'breakpoint %s at %s:%s' % (self.number, self.file, self.line)
 
 
+    
+# Adapted from: https://github.com/micropython/micropython-lib/blob/master/cmd/cmd.py
 class Cmd:
     IDENTCHARS = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_'
     PROMPT = '(Mpdb) '
