@@ -1,5 +1,5 @@
 # MicroPython Debugger
-This project aims to add Pdb like debug functionality to MicroPython. Thanks to the work of the community by adding in the `sys.settrace()` function that is required to add debug functionality.  This module aims to implement basic debug functionality like `break`, `step`, `next`, `continue` and it is not the intention the implement all the features available in Pdb. 
+This project aims to add Pdb like debug functionality to MicroPython. Thanks to the work of the [community by adding in the `sys.settrace()`](https://github.com/micropython/micropython/pull/5026) function that is required to add debug functionality.  This module aims to implement basic debug functionality like `break`, `step`, `next`, `continue` and it is not the intention the implement all the features available in Pdb. 
 
 Besides the basic functionality, this debugger also implements several memory related commands like `mem_free`, `mem_alloc` and `collect`. These are intended to eliminate the use of putting a lot of print statements in the code. 
 
